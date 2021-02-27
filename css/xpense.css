@@ -1,0 +1,43 @@
+div.container.content {
+  margin-bottom: 76px;
+  padding-bottom: 1px;
+}
+
+a.nav-link {
+  color: #adb5bd;
+}
+
+a.active {
+  color: #0d6efd;
+}
+
+input#restore-input {
+  display: none;
+}
+
+/* SweetAlert Overrides */
+
+.swal2-confirm.swal2-styled {
+  padding: 0;
+}
+
+.swal2-actions:not(.swal2-loading) .swal2-styled:active,
+.swal2-actions:not(.swal2-loading) .swal2-styled:hover,
+.swal2-actions:not(.swal2-loading) .swal2-styled:focus {
+  background: none;
+  box-shadow: none;
+}
+
+.swal2-header {
+  padding: 0 0.5em;
+  align-items: start;
+}
+
+.swal2-title {
+  font-size: 1.5em;
+}
+
+.swal2-content {
+  padding: 0 0.5em;
+  text-align: start;
+}
