@@ -22,7 +22,7 @@
       "name": "Add",
       "short_name": "Add",
       "description": "Add Expense Entry",
-      "url": "/history",
+      "url": "/",
       "icons": [{ "src": "/img/pencil.svg", "sizes": "192x192" }]
     },
     {
