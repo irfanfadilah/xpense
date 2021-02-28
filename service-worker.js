@@ -35,14 +35,17 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        if (response) {
-          return response
-        } else {
-          fetch(event.request).then(response => {
-            cache.put(event.request, response.clone());
+        if (response) { return response }
+        return fetch(event.request).then(
+          function(response) {
+            if(!response || response.status !== 200 || response.type !== 'basic') { return response }
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, response.clone());
+              });
             return response;
-          });
-        }
+          }
+        );
       }
     )
   );
