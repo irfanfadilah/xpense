@@ -15,7 +15,7 @@
   ],
   "start_url": "/",
   "background_color": "#1da1f2",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#1da1f2",
   "shortcuts": [
     {
