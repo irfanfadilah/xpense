@@ -14,9 +14,9 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#0d6efd",
+  "background_color": "#1da1f2",
   "display": "fullscreen",
-  "theme_color": "#0d6efd",
+  "theme_color": "#1da1f2",
   "shortcuts": [
     {
       "name": "History",

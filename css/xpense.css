@@ -8,7 +8,23 @@ a.nav-link {
 }
 
 a.active {
-  color: #0d6efd;
+  color: #1da1f2;
+}
+
+a {
+  color: #1b95e0;
+}
+
+.btn-primary {
+  border-color: #1da1f2;
+  background-color: #1da1f2;
+}
+
+.btn-primary:active,
+.btn-primary:hover,
+.btn-primary:focus {
+  border-color: #1a90da;
+  background-color: #1a90da;
 }
 
 input#restore-input {
@@ -16,10 +32,6 @@ input#restore-input {
 }
 
 /* SweetAlert Overrides */
-
-.swal2-confirm.swal2-styled {
-  padding: 0;
-}
 
 .swal2-actions:not(.swal2-loading) .swal2-styled:active,
 .swal2-actions:not(.swal2-loading) .swal2-styled:hover,
@@ -34,10 +46,17 @@ input#restore-input {
 }
 
 .swal2-title {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .swal2-content {
-  padding: 0 0.5em;
   text-align: start;
+  padding: 0 0.5em;
+  font-size: 1em;
+}
+
+.swal2-styled.swal2-confirm {
+  font-size: 1em;
+  color: #167c80;
+  padding: 0;
 }
