@@ -1,4 +1,4 @@
-var CACHE_NAME = 'xPense-v1.0';
+var CACHE_NAME = 'xPense-v1.1';
 var urlsToCache = [
   '/',
   '/history',
