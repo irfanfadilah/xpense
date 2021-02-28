@@ -19,25 +19,25 @@
   "theme_color": "#1da1f2",
   "shortcuts": [
     {
-      "name": "Add",
-      "short_name": "Add",
-      "description": "Add Expense Entry",
-      "url": "/",
-      "icons": [{ "src": "/img/pencil.svg", "sizes": "192x192" }]
+      "name": "Settings",
+      "short_name": "Settings",
+      "description": "Update Preferred Settings",
+      "url": "/settings",
+      "icons": [{ "src": "/img/gear.png", "sizes": "192x192" }]
     },
     {
       "name": "View",
       "short_name": "View",
       "description": "View Expense Entries",
       "url": "/history",
-      "icons": [{ "src": "/img/clock.svg", "sizes": "192x192" }]
+      "icons": [{ "src": "/img/clock.png", "sizes": "192x192" }]
     },
     {
-      "name": "Settings",
-      "short_name": "Settings",
-      "description": "Update Preferred Settings",
-      "url": "/settings",
-      "icons": [{ "src": "/img/gear.svg", "sizes": "192x192" }]
+      "name": "Add",
+      "short_name": "Add",
+      "description": "Add Expense Entry",
+      "url": "/",
+      "icons": [{ "src": "/img/pencil.png", "sizes": "192x192" }]
     }
   ],
   "description": "Expense Tracking App",

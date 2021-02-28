@@ -1,5 +1,5 @@
-var CACHE_NAME = 'xPense-v1.1';
-var urlsToCache = [
+const CACHE_NAME = 'xPense-v1.2';
+const urlsToCache = [
   '/',
   '/history',
   '/settings',
@@ -22,24 +22,43 @@ var urlsToCache = [
   "/js/turbo.js"
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
+      .then(cache => {
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
+      .then(response => {
+        if (response) { return response }
+        return fetch(event.request).then(
+          function(response) {
+            if(!response || response.status !== 200 || response.type !== 'basic') { return response }
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, response.clone());
+              });
+            return response;
+          }
+        );
       }
     )
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(() => true).map(cacheName => {
+          return caches.delete(cacheName);
+        })
+      );
+    })
   );
 });
