@@ -44,6 +44,22 @@ const History = {
         total += parseInt(expense.amount)
       })
       return this.formatAmount(total)
+    },
+    toggleActions(id) {
+      document.querySelector("#actions-"+id).classList.toggle("d-none")
+    },
+    deleteExpense(id) {
+      Swal.fire({
+        title: 'Confirm',
+        text: "Do you want to delete this entry?",
+        reverseButtons: true,
+        showCancelButton: true,
+        confirmButtonText: 'Delete'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          db.expenses.delete(id).then(() => this.filter())
+        }
+      })
     }
   }
 };
