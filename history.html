@@ -59,7 +59,7 @@
                   <td class="text-center" colspan="2">{{ formatDate(expenses[0].time) }}</td>
                 </tr>
                 <template v-for="expense in expenses">
-                  <tr v-on:click="toggleActions(expense.id)" v-bind:key="expense.id">
+                  <tr v-on:click="toggleActions(expense.id)">
                     <td>{{ expense.detail }}</td>
                     <td class="text-end">{{ formatAmount(expense.amount) }}</td>
                   </tr>
