@@ -58,10 +58,21 @@
                 <tr class="table-active">
                   <td class="text-center" colspan="2">{{ formatDate(expenses[0].time) }}</td>
                 </tr>
-                <tr v-for="expense in expenses">
-                  <td>{{ expense.detail }}</td>
-                  <td class="text-end">{{ formatAmount(expense.amount) }}</td>
-                </tr>
+                <template v-for="expense in expenses">
+                  <tr v-on:click="toggleActions(expense.id)" v-bind:key="expense.id">
+                    <td>{{ expense.detail }}</td>
+                    <td class="text-end">{{ formatAmount(expense.amount) }}</td>
+                  </tr>
+                  <tr v-bind:id="'actions-'+expense.id" class="d-none" v-bind:key="expense.id">
+                    <td colspan="2">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)">Delete</a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </template>
                 <tr class="border-top">
                   <td class="text-end" colspan="2"><strong>{{ calculateTotal(expenses) }}</strong></td>
                 </tr>

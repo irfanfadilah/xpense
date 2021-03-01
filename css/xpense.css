@@ -13,6 +13,7 @@ a.active {
 
 a {
   color: #1b95e0;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -47,6 +48,7 @@ input#restore-input {
 
 .swal2-title {
   font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
 .swal2-content {
@@ -55,8 +57,15 @@ input#restore-input {
   font-size: 1em;
 }
 
-.swal2-styled.swal2-confirm {
+.swal2-actions {
+  padding: 0 0.5em;
+  font-size: 1em;
+}
+
+.swal2-styled.swal2-confirm,
+.swal2-styled.swal2-cancel {
   font-size: 1em;
   color: #167c80;
   padding: 0;
+  padding-left: 20px;
 }

@@ -29,7 +29,7 @@ const Settings = {
       db.open().then(() => {
         exportToJsonString(db.backendDB(), (error, jsonString) => {
           if (!error) {
-            download(jsonString, "xPense.json", "application/json");
+            download(jsonString, "xPense_v"+ (new Date).getTime() +".json", "application/json");
           }
         });
       })
