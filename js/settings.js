@@ -8,12 +8,15 @@ const Settings = {
     }
   },
   created() {
-    getSettings("name").then(data => this.name = data.value);
-    getSettings("currency").then(data => this.currency = data.value);
-    getSettings("separator").then(data => this.separator = data.value);
-    getSettings("budget").then(data => this.budget = data.value);
+    this.getSettingsData()
   },
   methods: {
+    getSettingsData() {
+      getSettings("name").then(data => this.name = data.value);
+      getSettings("currency").then(data => this.currency = data.value);
+      getSettings("separator").then(data => this.separator = data.value);
+      getSettings("budget").then(data => this.budget = data.value);
+    },
     submit() {
       data = [
         { key: "name", value: this.name },
@@ -23,7 +26,6 @@ const Settings = {
       ];
       updateSettings(data)
         .then(() => Swal.fire("Success", "The settings has been saved."))
-        .catch(error => Swal.fire("Ooops", error));
     },
     exportData() {
       db.open().then(() => {
@@ -35,24 +37,23 @@ const Settings = {
       })
     },
     importData(event) {
-      event.target.files[0].text().then(jsonString => {
-        db.open().then(() => {
-          clearDatabase(db.backendDB(), () => {
-            importFromJsonString(db.backendDB(), jsonString, error => {
-              if (error) {
-                Swal.fire("Ooops", "Failed to import the data.")
-              } else {
-                Swal.fire({
-                  title: "Success",
-                  text: "Data imported successfully.",
-                  confirmButtonText: "Reload"
-                })
-                .then(() => location.reload())
-              }
+      file = event.target.files[0]
+      if (file) {
+        file.text().then(jsonString => {
+          db.open().then(() => {
+            clearDatabase(db.backendDB(), () => {
+              importFromJsonString(db.backendDB(), jsonString, error => {
+                if (error) {
+                  Swal.fire("Ooops", "Failed to import the data.")
+                } else {
+                  this.getSettingsData()
+                  Swal.fire("Success", "Data imported successfully.")
+                }
+              })
             })
           })
         })
-      })
+      }
     }
   }
 };
