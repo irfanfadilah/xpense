@@ -29,8 +29,15 @@
     <script src="/js/turbo.js"></script>
   </head>
   <body>
-    <h1 class="text-center py-3 mb-3 border-bottom">xPense</h1>
     <div id="history" class="container content">
+      <div class="row py-3 mb-3 border-bottom">
+        <div class="col-4 offset-4">
+          <h1 class="text-center mb-0">xPense</h1>
+        </div>
+        <div id="pwa-prompt" class="col-4 text-end d-none">
+          <a href="javascript:void(0)" onclick="promptPWA()" class="btn btn-outline-primary">Install</a>
+        </div>
+      </div>
       <div class="row mb-3">
         <div class="col-5">
           <select v-model="selectedYear" v-on:change="filter" class="form-select">

@@ -1,5 +1,3 @@
-let IndexInstance, HistoryInstance, SettingsInstance;
-
 document.querySelector('html').addEventListener('turbo:load', function () {
   switch(window.location.pathname) {
     case "/":

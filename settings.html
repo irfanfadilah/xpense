@@ -29,8 +29,15 @@
     <script src="/js/turbo.js"></script>
   </head>
   <body>
-    <h1 class="text-center py-3 mb-3 border-bottom">xPense</h1>
     <div id="settings" class="container content">
+      <div class="row py-3 mb-3 border-bottom">
+        <div class="col-4 offset-4">
+          <h1 class="text-center mb-0">xPense</h1>
+        </div>
+        <div id="pwa-prompt" class="col-4 text-end d-none">
+          <a href="javascript:void(0)" onclick="promptPWA()" class="btn btn-outline-primary">Install</a>
+        </div>
+      </div>
       <form v-on:submit.prevent="submit" class="mb-5">
         <h4 class="mb-3">Settings</h4>
         <div class="form-floating mb-3">

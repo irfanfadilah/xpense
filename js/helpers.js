@@ -50,3 +50,33 @@ function dateISO(time=null) {
     return new Date(time).toISOString().split("T")[0]
   }
 }
+
+function displayMode() {
+  isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+
+  if (document.referrer.startsWith("android-app://")) {
+    return "application"
+  } else if (navigator.standalone || isStandalone) {
+    return "standalone"
+  } else {
+    return "browser"
+  }
+}
+
+let installPWA;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  installPWA = e;
+  if (displayMode() == "browser") {
+    document.getElementById("pwa-prompt").classList.remove("d-none")
+  }
+});
+
+function promptPWA() {
+  installPWA.prompt().then((e) => {
+    if (e.outcome == "accepted") {
+      document.getElementById("pwa-prompt").classList.add("d-none")
+    }
+  })
+}
