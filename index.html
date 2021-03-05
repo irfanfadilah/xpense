@@ -35,11 +35,15 @@
         <h4 class="text-center mb-3">Good day, {{name}}!</h4>
         <div class="form-floating mb-3">
           <input v-model="detail" placeholder="Snack" type="text" class="form-control" autocomplete="off" maxlength="120" required>
-          <label class="form-label">What is it?</label>
+          <label class="form-label">Description</label>
         </div>
         <div class="form-floating mb-3">
           <input v-model="amount" placeholder="5000" type="number" class="form-control" autocomplete="off" min="1" max="999999999" required>
-          <label class="form-label">How much?</label>
+          <label class="form-label">Amount</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input v-model="time" placeholder="2022-02-02T10:00" type="date" class="form-control" autocomplete="off" required>
+          <label class="form-label">Date</label>
         </div>
         <div class="mb-3 d-grid">
           <button type="submit" class="btn btn-primary btn-lg">Submit</button>
