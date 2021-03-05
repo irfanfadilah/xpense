@@ -65,11 +65,10 @@
                   </tr>
                   <tr v-bind:id="'actions-'+expense.id" class="d-none">
                     <td colspan="2">
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)">Delete</a>
-                        </li>
-                      </ul>
+                      <div class="d-flex">
+                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount)">Edit</a>
+                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="ms-3">Delete</a>
+                      </div>
                     </td>
                   </tr>
                 </template>
