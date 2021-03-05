@@ -50,3 +50,15 @@ function dateISO(time=null) {
     return new Date(time).toISOString().split("T")[0]
   }
 }
+
+function displayMode() {
+  isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+
+  if (document.referrer.startsWith("android-app://")) {
+    return "application"
+  } else if (navigator.standalone || isStandalone) {
+    return "standalone"
+  } else {
+    return "browser"
+  }
+}
