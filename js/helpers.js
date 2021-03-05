@@ -42,3 +42,11 @@ function current(name) {
       return now
   }
 }
+
+function dateISO(time=null) {
+  if (time == null) {
+    return new Date().toISOString().split("T")[0]
+  } else {
+    return new Date(time).toISOString().split("T")[0]
+  }
+}
