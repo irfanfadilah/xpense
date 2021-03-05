@@ -62,3 +62,21 @@ function displayMode() {
     return "browser"
   }
 }
+
+let installPWA;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  installPWA = e;
+  if (displayMode() == "browser") {
+    document.getElementById("pwa-prompt").classList.remove("d-none")
+  }
+});
+
+function promptPWA() {
+  installPWA.prompt().then((e) => {
+    if (e.outcome == "accepted") {
+      document.getElementById("pwa-prompt").classList.add("d-none")
+    }
+  })
+}
