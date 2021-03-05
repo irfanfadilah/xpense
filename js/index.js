@@ -3,7 +3,8 @@ const Index = {
     return {
       name: null,
       detail: null,
-      amount: null
+      amount: null,
+      time: dateISO()
     }
   },
   created() {
@@ -11,18 +12,20 @@ const Index = {
   },
   methods: {
     submit() {
+      time = new Date(this.time)
       data = {
         amount: this.amount,
         detail: this.detail,
-        year: current("year"),
-        month: current("month"),
-        date: current("date"),
-        time: current("time")
+        year: time.getFullYear(),
+        month: time.getMonth(),
+        date: time.getDate(),
+        time: time.getTime()
       };
       db.expenses.add(data)
         .then(() => {
           this.amount = null
           this.detail = null
+          this.time = dateISO()
           Swal.fire("Success", "The data has been saved.")
         })
         .catch(error => Swal.fire("Ooops", error))
