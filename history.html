@@ -66,7 +66,7 @@
                   <tr v-bind:id="'actions-'+expense.id" class="d-none">
                     <td colspan="2">
                       <div class="d-flex">
-                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount)">Edit</a>
+                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)">Edit</a>
                         <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="ms-3">Delete</a>
                       </div>
                     </td>
@@ -96,6 +96,10 @@
                 <div class="form-floating mb-3">
                   <input v-model="expenseAmount" placeholder="5000" type="number" class="form-control" autocomplete="off" min="1" max="999999999" required>
                   <label class="form-label">How much?</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input v-model="expenseTime" placeholder="2022-02-02T10:00" type="date" class="form-control" autocomplete="off" required>
+                  <label class="form-label">When?</label>
                 </div>
                 <div class="mb-3 d-grid">
                   <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
