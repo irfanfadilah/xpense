@@ -8,7 +8,10 @@ const History = {
       expensesByDates: null,
       totalExpense: null,
       separator: null,
-      currency: null
+      currency: null,
+      expenseId: null,
+      expenseDetail: null,
+      expenseAmount: null
     }
   },
   created() {
@@ -47,6 +50,21 @@ const History = {
     },
     toggleActions(id) {
       document.querySelector("#actions-"+id).classList.toggle("d-none")
+    },
+    editExpense(id, detail, amount) {
+      this.expenseId = id
+      this.expenseDetail = detail
+      this.expenseAmount = amount
+      editModal.show()
+    },
+    updateExpense() {
+      db.expenses.update(this.expenseId, {
+        detail: this.expenseDetail,
+        amount: this.expenseAmount
+      }).then(() => {
+        this.filter()
+        editModal.hide()
+      })
     },
     deleteExpense(id) {
       Swal.fire({

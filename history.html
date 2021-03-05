@@ -65,11 +65,10 @@
                   </tr>
                   <tr v-bind:id="'actions-'+expense.id" class="d-none">
                     <td colspan="2">
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)">Delete</a>
-                        </li>
-                      </ul>
+                      <div class="d-flex">
+                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount)">Edit</a>
+                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="ms-3">Delete</a>
+                      </div>
                     </td>
                   </tr>
                 </template>
@@ -79,6 +78,31 @@
               </template>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div id="edit-modal" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form v-on:submit.prevent="updateExpense">
+                <div class="form-floating mb-3">
+                  <input v-model="expenseDetail" placeholder="Snack" type="text" class="form-control" autocomplete="off" maxlength="120" required>
+                  <label class="form-label">What is it?</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input v-model="expenseAmount" placeholder="5000" type="number" class="form-control" autocomplete="off" min="1" max="999999999" required>
+                  <label class="form-label">How much?</label>
+                </div>
+                <div class="mb-3 d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
