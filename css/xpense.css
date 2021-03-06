@@ -11,37 +11,17 @@ a.active {
   color: #1da1f2;
 }
 
-a {
-  color: #1b95e0;
-  text-decoration: none;
+input#restore-input {
+  display: none;
 }
 
-.btn-primary {
-  border-color: #1da1f2;
+tr.table-expense {
+  color: #ffffff;
   background-color: #1da1f2;
 }
 
-.btn-outline-primary {
-  color: #1da1f2;
-  border-color: #1da1f2;
-}
-
-.btn-primary:active,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-outline-primary:active,
-.btn-outline-primary:hover,
-.btn-outline-primary:focus {
-  border-color: #1a90da;
-  background-color: #1a90da;
-}
-
-.btn-outline-primary:focus {
-  color: #ffffff;
-}
-
-input#restore-input {
-  display: none;
+strong {
+  font-weight: bold;
 }
 
 #pwa-prompt > a {
