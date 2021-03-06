@@ -3,6 +3,12 @@ div.container.content {
   padding-bottom: 1px;
 }
 
+@media (min-width: 576px) {
+  h1.app-title {
+    text-align: center;
+  }
+}
+
 a.nav-link {
   color: #adb5bd;
 }
@@ -30,11 +36,6 @@ strong {
 
 small {
   font-size: 0.75em;
-}
-
-#pwa-prompt > a {
-  margin-top: -2px;
-  margin-bottom: -2px;
 }
 
 /* SweetAlert Overrides */
