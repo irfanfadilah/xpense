@@ -3,6 +3,12 @@ div.container.content {
   padding-bottom: 1px;
 }
 
+@media (min-width: 576px) {
+  h1.app-title {
+    text-align: center;
+  }
+}
+
 a.nav-link {
   color: #adb5bd;
 }
@@ -11,42 +17,25 @@ a.active {
   color: #1da1f2;
 }
 
-a {
-  color: #1b95e0;
-  text-decoration: none;
-}
-
-.btn-primary {
-  border-color: #1da1f2;
-  background-color: #1da1f2;
-}
-
-.btn-outline-primary {
-  color: #1da1f2;
-  border-color: #1da1f2;
-}
-
-.btn-primary:active,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-outline-primary:active,
-.btn-outline-primary:hover,
-.btn-outline-primary:focus {
-  border-color: #1a90da;
-  background-color: #1a90da;
-}
-
-.btn-outline-primary:focus {
-  color: #ffffff;
-}
-
 input#restore-input {
   display: none;
 }
 
-#pwa-prompt > a {
-  margin-top: -2px;
-  margin-bottom: -2px;
+tr.table-expense {
+  color: #ffffff;
+  background-color: #1da1f2;
+}
+
+.table-sm td {
+  padding: 0.5em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+small {
+  font-size: 0.75em;
 }
 
 /* SweetAlert Overrides */
@@ -76,12 +65,12 @@ input#restore-input {
 
 .swal2-actions {
   padding: 0 0.5em;
-  font-size: 1em;
+  font-size: 0.75em;
 }
 
 .swal2-styled.swal2-confirm,
 .swal2-styled.swal2-cancel {
-  font-size: 1em;
+  text-transform: uppercase;
   color: #167c80;
   padding: 0;
 }

@@ -1,13 +1,13 @@
-const CACHE_NAME = 'xPense-v1.8';
+const CACHE_NAME = 'xPense-v2.0';
 const urlsToCache = [
   '/',
   '/history',
   '/settings',
   '/favicon.ico',
-  "/css/bootstrap.min.css",
+  "/css/mdb.min.css",
   "/css/sweetalert2-material.min.css",
   "/css/xpense.css",
-  "/lib/bootstrap.bundle.min.js",
+  "/lib/mdb.min.js",
   "/lib/turbo.es5-umd.min.js",
   "/lib/sweetalert2.min.js",
   "/lib/download.min.js",

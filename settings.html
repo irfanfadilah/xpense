@@ -9,11 +9,11 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>xPense</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/mdb.min.css">
     <link rel="stylesheet" href="/css/sweetalert2-material.min.css">
     <link rel="stylesheet" href="/css/xpense.css">
     <!-- Libraries -->
-    <script src="/lib/bootstrap.bundle.min.js"></script>
+    <script src="/lib/mdb.min.js"></script>
     <script src="/lib/turbo.es5-umd.min.js"></script>
     <script src="/lib/sweetalert2.min.js"></script>
     <script src="/lib/download.min.js"></script>
@@ -30,12 +30,12 @@
   </head>
   <body>
     <div id="settings" class="container content">
-      <div class="row py-3 mb-3 border-bottom">
-        <div class="col-4 offset-4">
-          <h1 class="text-center mb-0">xPense</h1>
+      <div class="row align-items-center py-3 mb-3 border-bottom">
+        <div class="col-6 col-sm-4 offset-sm-4">
+          <h1 class="app-title mb-0">xPense</h1>
         </div>
-        <div id="pwa-prompt" class="col-4 text-end d-none">
-          <a href="javascript:void(0)" onclick="promptPWA()" class="btn btn-outline-primary">Install</a>
+        <div id="pwa-prompt" class="col-6 col-sm-4 text-end d-none">
+          <a href="javascript:void(0)" onclick="promptPWA()" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Install</a>
         </div>
       </div>
       <form v-on:submit.prevent="submit" class="mb-5">

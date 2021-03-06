@@ -9,11 +9,11 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>xPense</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/mdb.min.css">
     <link rel="stylesheet" href="/css/sweetalert2-material.min.css">
     <link rel="stylesheet" href="/css/xpense.css">
     <!-- Libraries -->
-    <script src="/lib/bootstrap.bundle.min.js"></script>
+    <script src="/lib/mdb.min.js"></script>
     <script src="/lib/turbo.es5-umd.min.js"></script>
     <script src="/lib/sweetalert2.min.js"></script>
     <script src="/lib/download.min.js"></script>
@@ -30,12 +30,12 @@
   </head>
   <body>
     <div id="history" class="container content">
-      <div class="row py-3 mb-3 border-bottom">
-        <div class="col-4 offset-4">
-          <h1 class="text-center mb-0">xPense</h1>
+      <div class="row align-items-center py-3 mb-3 border-bottom">
+        <div class="col-6 col-sm-4 offset-sm-4">
+          <h1 class="app-title mb-0">xPense</h1>
         </div>
-        <div id="pwa-prompt" class="col-4 text-end d-none">
-          <a href="javascript:void(0)" onclick="promptPWA()" class="btn btn-outline-primary">Install</a>
+        <div id="pwa-prompt" class="col-6 col-sm-4 text-end d-none">
+          <a href="javascript:void(0)" onclick="promptPWA()" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Install</a>
         </div>
       </div>
       <div class="row mb-3">
@@ -59,11 +59,11 @@
       </div>
       <div v-if="totalExpense != 0" class="row mb-5">
         <div class="column">
-          <table class="table table-borderless">
+          <table class="table table-borderless table-sm">
             <tbody>
               <template v-for="(expenses, date) in expensesByDates" v-bind:key="date">
-                <tr class="table-active">
-                  <td class="text-center" colspan="2">{{ formatDate(expenses[0].time) }}</td>
+                <tr class="table-expense">
+                  <td class="text-center" colspan="2"><strong>{{ formatDate(expenses[0].time) }}</strong></td>
                 </tr>
                 <template v-for="expense in expenses" v-bind:key="expense.id">
                   <tr v-on:click="toggleActions(expense.id)">
@@ -73,8 +73,8 @@
                   <tr v-bind:id="'actions-'+expense.id" class="d-none">
                     <td colspan="2">
                       <div class="d-flex">
-                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)">Edit</a>
-                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="ms-3">Delete</a>
+                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)" class="text-uppercase"><small>Edit</small></a>
+                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="text-uppercase ms-4"><small>Delete</small></a>
                       </div>
                     </td>
                   </tr>
@@ -92,7 +92,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Edit</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form v-on:submit.prevent="updateExpense">
