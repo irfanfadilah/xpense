@@ -20,8 +20,16 @@ tr.table-expense {
   background-color: #1da1f2;
 }
 
+.table-sm td {
+  padding: 0.5em;
+}
+
 strong {
   font-weight: bold;
+}
+
+small {
+  font-size: 0.75em;
 }
 
 #pwa-prompt > a {
@@ -56,12 +64,12 @@ strong {
 
 .swal2-actions {
   padding: 0 0.5em;
-  font-size: 1em;
+  font-size: 0.75em;
 }
 
 .swal2-styled.swal2-confirm,
 .swal2-styled.swal2-cancel {
-  font-size: 1em;
+  text-transform: uppercase;
   color: #167c80;
   padding: 0;
 }

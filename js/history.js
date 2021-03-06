@@ -82,7 +82,7 @@ const History = {
         reverseButtons: true,
         showCancelButton: true,
         confirmButtonText: 'Delete',
-        customClass: { confirmButton: "ms-3" }
+        customClass: { confirmButton: "ms-4" }
       }).then((result) => {
         if (result.isConfirmed) {
           db.expenses.delete(id).then(() => this.filter())

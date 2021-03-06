@@ -59,11 +59,11 @@
       </div>
       <div v-if="totalExpense != 0" class="row mb-5">
         <div class="column">
-          <table class="table table-borderless">
+          <table class="table table-borderless table-sm">
             <tbody>
               <template v-for="(expenses, date) in expensesByDates" v-bind:key="date">
-                <tr class="table-active">
-                  <td class="text-center" colspan="2">{{ formatDate(expenses[0].time) }}</td>
+                <tr class="table-expense">
+                  <td class="text-center" colspan="2"><strong>{{ formatDate(expenses[0].time) }}</strong></td>
                 </tr>
                 <template v-for="expense in expenses" v-bind:key="expense.id">
                   <tr v-on:click="toggleActions(expense.id)">
@@ -73,8 +73,8 @@
                   <tr v-bind:id="'actions-'+expense.id" class="d-none">
                     <td colspan="2">
                       <div class="d-flex">
-                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)">Edit</a>
-                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="ms-3">Delete</a>
+                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)" class="text-uppercase"><small>Edit</small></a>
+                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="text-uppercase ms-4"><small>Delete</small></a>
                       </div>
                     </td>
                   </tr>
