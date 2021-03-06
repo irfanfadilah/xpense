@@ -4,7 +4,7 @@ document.querySelector('html').addEventListener('turbo:load', function () {
       IndexInstance = Vue.createApp(Index).mount("#index"); break
     case "/history":
       HistoryInstance = Vue.createApp(History).mount("#history")
-      editModal = new bootstrap.Modal(document.getElementById('edit-modal')); break
+      editModal = new mdb.Modal(document.getElementById('edit-modal')); break
     case "/settings":
       SettingsInstance = Vue.createApp(Settings).mount("#settings"); break
     default:
