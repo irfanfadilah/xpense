@@ -25,11 +25,12 @@ tr.table-expense {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 700;
 }
 
-small {
-  font-size: 0.75em;
+a.btn-action {
+  font-weight: 500;
+  font-size: 0.85em;
 }
 
 /* SweetAlert Overrides */

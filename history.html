@@ -73,8 +73,8 @@
                   <tr v-bind:id="'actions-'+expense.id" class="d-none">
                     <td colspan="2">
                       <div class="d-flex">
-                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)" class="text-uppercase">Edit</a>
-                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="text-uppercase ms-4">Delete</a>
+                        <a href="javascript:void(0)" v-on:click="editExpense(expense.id, expense.detail, expense.amount, expense.time)" class="text-uppercase btn-action">Edit</a>
+                        <a href="javascript:void(0)" v-on:click="deleteExpense(expense.id)" class="text-uppercase ms-4 btn-action">Delete</a>
                       </div>
                     </td>
                   </tr>
