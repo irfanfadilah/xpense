@@ -3,12 +3,6 @@ div.container.content {
   padding-bottom: 1px;
 }
 
-@media (min-width: 576px) {
-  h1.app-title {
-    text-align: center;
-  }
-}
-
 a.nav-link {
   color: #adb5bd;
 }
