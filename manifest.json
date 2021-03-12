@@ -4,16 +4,20 @@
   "icons": [
     {
       "src": "/img/icon-192.png",
+      "purpose": "any maskable",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
       "src": "/img/icon-512.png",
+      "purpose": "any maskable",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": "/",
+  "categories": ["finance"],
+  "orientation": "portrait",
   "background_color": "#1da1f2",
   "display": "standalone",
   "theme_color": "#1da1f2",
