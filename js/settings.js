@@ -31,7 +31,9 @@ const Settings = {
       db.open().then(() => {
         exportToJsonString(db.backendDB(), (error, jsonString) => {
           if (!error) {
-            download(jsonString, "xPense_v"+ (new Date).getTime() +".json", "application/json");
+            fileName = "xPense_" + current().toJSON().split("T")[0] + "_" + current("time").toString().slice(-5) + ".backup"
+            download(jsonString, fileName, "application/json")
+            Swal.fire("Exported", fileName)
           }
         });
       })
