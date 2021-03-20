@@ -1,5 +1,5 @@
 [{
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target" : { "namespace": "android_app", "package_name": "app.varchar.xpense.twa",
-                  "sha256_cert_fingerprints": ["2B:16:56:9A:29:26:C6:92:4F:5C:9F:B6:27:48:EF:37:61:ED:E2:85:4D:25:52:32:22:1F:1A:22:42:15:B1:DB"] }
+                  "sha256_cert_fingerprints": ["21:D0:A9:48:62:0B:56:15:FF:D4:14:CE:34:4A:36:43:39:23:0A:96:B4:92:D2:EE:7A:78:D4:E3:07:79:A5:D5"] }
 }]
