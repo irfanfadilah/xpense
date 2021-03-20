@@ -44,7 +44,7 @@ function groupBy(data, key) {
       keys = keys.sort((a, b) => a - b)
     } else if (sort.value == "newest") {
       keys = keys.sort((a, b) => b - a)
-    } else if (sort.value == "oldest") {
+    } else {
       keys = keys.sort((a, b) => a - b)
     }
 
