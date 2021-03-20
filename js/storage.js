@@ -28,12 +28,26 @@ async function getExpenses(month, year) {
   return await db.expenses
     .where("[year+month]")
     .equals([parseInt(year), parseInt(month)])
-    .toArray();
+    .sortBy("time")
 };
 
 function groupBy(data, key) {
-  return data.reduce(function(rv, x) {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
+  keys = [...new Set(data.map(x => x[key]))]
+
+  if (!true) {
+    keys = keys.sort((a, b) => a - b)
+  } else {
+    keys = keys.sort((a, b) => b - a)
+  }
+
+  aaa = keys.map(item => {
+    return {
+      key: item,
+      data: data.filter(x => x[key] == item)
+    }
+  })
+
+  console.log(aaa)
+
+  return aaa
 };
