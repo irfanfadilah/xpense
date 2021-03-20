@@ -31,23 +31,28 @@ async function getExpenses(month, year) {
     .sortBy("time")
 };
 
+function createDefaultSorting() {
+  db.settings.add({ key: "sort", value: "oldest" })
+}
+
 function groupBy(data, key) {
   keys = [...new Set(data.map(x => x[key]))]
 
-  if (!true) {
-    keys = keys.sort((a, b) => a - b)
-  } else {
-    keys = keys.sort((a, b) => b - a)
-  }
-
-  aaa = keys.map(item => {
-    return {
-      key: item,
-      data: data.filter(x => x[key] == item)
+  return getSettings("sort").then(sort => {
+    if (sort == undefined) {
+      createDefaultSorting()
+      keys = keys.sort((a, b) => a - b)
+    } else if (sort.value == "newest") {
+      keys = keys.sort((a, b) => b - a)
+    } else if (sort.value == "oldest") {
+      keys = keys.sort((a, b) => a - b)
     }
+
+    return keys.map(item => {
+      return {
+        key: item,
+        data: data.filter(x => x[key] == item)
+      }
+    })
   })
-
-  console.log(aaa)
-
-  return aaa
 };
