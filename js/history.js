@@ -20,16 +20,16 @@ const History = {
     getSettings("currency").then(data => this.currency = data.value);
     getExpenses(current("month"), current("year"))
       .then(data => {
-        this.expensesByDates = groupBy(data, "date")
         this.totalExpense = this.calculateTotal(data)
+        groupBy(data, "date").then(data => this.expensesByDates = data)
       })
   },
   methods: {
     filter() {
       getExpenses(this.selectedMonth, this.selectedYear)
         .then(data => {
-          this.expensesByDates = groupBy(data, "date")
           this.totalExpense = this.calculateTotal(data)
+          groupBy(data, "date").then(data => this.expensesByDates = data)
         })
     },
     formatTime(time) {
