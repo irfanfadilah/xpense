@@ -10,7 +10,9 @@ db.on("populate", function() {
     { key: "name", value: "Stranger" },
     { key: "currency", value: "Rp" },
     { key: "separator", value: "id" },
-    { key: "budget", value: "" }
+    { key: "budget", value: "" },
+    { key: "donated", value: false },
+    { key: "sort", value: "oldest" }
   ]);
 });
 
