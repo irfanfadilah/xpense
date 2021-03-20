@@ -9,6 +9,7 @@ const History = {
       totalExpense: null,
       separator: null,
       currency: null,
+      sort: null,
       expenseId: null,
       expenseDetail: null,
       expenseAmount: null,
@@ -18,6 +19,7 @@ const History = {
   created() {
     getSettings("separator").then(data => this.separator = data.value);
     getSettings("currency").then(data => this.currency = data.value);
+    getSettings("sort").then(data => this.sort = data.value);
     getExpenses(current("month"), current("year"))
       .then(data => {
         this.totalExpense = this.calculateTotal(data)
@@ -87,6 +89,12 @@ const History = {
         if (result.isConfirmed) {
           db.expenses.delete(id).then(() => this.filter())
         }
+      })
+    },
+    updateSortSetting(param) {
+      db.settings.update("sort", { value: param }).then(() => {
+        this.sort = param
+        this.filter()
       })
     }
   }
