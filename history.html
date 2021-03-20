@@ -61,11 +61,11 @@
         <div class="column">
           <table class="table table-borderless table-sm">
             <tbody>
-              <template v-for="(expenses, date) in expensesByDates" v-bind:key="date">
+              <template v-for="item in expensesByDates" v-bind:key="item.key">
                 <tr class="table-expense">
-                  <td class="text-center" colspan="2"><strong>{{ formatDate(expenses[0].time) }}</strong></td>
+                  <td class="text-center" colspan="2"><strong>{{ formatDate(item.data[0].time) }}</strong></td>
                 </tr>
-                <template v-for="expense in expenses" v-bind:key="expense.id">
+                <template v-for="expense in item.data" v-bind:key="expense.id">
                   <tr v-on:click="toggleActions(expense.id)">
                     <td>{{ expense.detail }}</td>
                     <td class="text-end">{{ formatAmount(expense.amount) }}</td>
@@ -80,7 +80,7 @@
                   </tr>
                 </template>
                 <tr class="border-top">
-                  <td class="text-end" colspan="2"><strong>{{ calculateTotal(expenses) }}</strong></td>
+                  <td class="text-end" colspan="2"><strong>{{ calculateTotal(item.data) }}</strong></td>
                 </tr>
               </template>
             </tbody>
