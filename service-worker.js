@@ -1,4 +1,4 @@
-const CACHE_NAME = 'xPense-v2.4';
+const CACHE_NAME = 'xPense-v2.5';
 const urlsToCache = [
   '/',
   '/history',

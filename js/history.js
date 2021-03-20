@@ -19,7 +19,7 @@ const History = {
   created() {
     getSettings("separator").then(data => this.separator = data.value);
     getSettings("currency").then(data => this.currency = data.value);
-    getSettings("sort").then(data => this.sort = data.value);
+    getSettings("sort").then(data => this.setSortSetting(data));
     getExpenses(current("month"), current("year"))
       .then(data => {
         this.totalExpense = this.calculateTotal(data)
@@ -90,6 +90,14 @@ const History = {
           db.expenses.delete(id).then(() => this.filter())
         }
       })
+    },
+    setSortSetting(data) {
+      if (data == undefined) {
+        createDefaultSorting()
+        this.sort = "oldest"
+      } else {
+        this.sort = data.value
+      }
     },
     updateSortSetting(param) {
       db.settings.update("sort", { value: param }).then(() => {

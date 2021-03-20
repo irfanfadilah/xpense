@@ -39,10 +39,7 @@ function groupBy(data, key) {
   keys = [...new Set(data.map(x => x[key]))]
 
   return getSettings("sort").then(sort => {
-    if (sort == undefined) {
-      createDefaultSorting()
-      keys = keys.sort((a, b) => a - b)
-    } else if (sort.value == "newest") {
+    if (sort?.value == "newest") {
       keys = keys.sort((a, b) => b - a)
     } else {
       keys = keys.sort((a, b) => a - b)
