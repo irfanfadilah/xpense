@@ -4,12 +4,16 @@
   "icons": [
     {
       "src": "/img/icon-192.png",
-      "purpose": "any maskable",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
       "src": "/img/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/img/icon-512-maskable.png",
       "purpose": "any maskable",
       "type": "image/png",
       "sizes": "512x512"
@@ -49,17 +53,17 @@
     {
       "src": "/img/screenshot-1.png",
       "type": "image/png",
-      "sizes": "1080x1922"
+      "sizes": "1080x2090"
     },
     {
       "src": "/img/screenshot-2.png",
       "type": "image/png",
-      "sizes": "1080x1922"
+      "sizes": "1080x2090"
     },
     {
       "src": "/img/screenshot-3.png",
       "type": "image/png",
-      "sizes": "1080x1922"
+      "sizes": "1080x2090"
     }
   ]
 }
