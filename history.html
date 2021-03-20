@@ -59,6 +59,10 @@
       </div>
       <div v-if="totalExpense != 0" class="row mb-5">
         <div class="column">
+          <div class="text-end mb-3">
+            <a v-if="sort == 'newest'" v-on:click="updateSortSetting('oldest')" class="text-uppercase btn-action" href="javascript:void(0)">Sort: Newest</a>
+            <a v-if="sort == 'oldest'" v-on:click="updateSortSetting('newest')" class="text-uppercase btn-action" href="javascript:void(0)">Sort: Oldest</a>
+          </div>
           <table class="table table-borderless table-sm">
             <tbody>
               <template v-for="item in expensesByDates" v-bind:key="item.key">
