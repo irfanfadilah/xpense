@@ -31,7 +31,7 @@ const Settings = {
       db.open().then(() => {
         exportToJsonString(db.backendDB(), (error, jsonString) => {
           if (!error) {
-            fileName = "xPense_" + current().toJSON().split("T")[0] + "_" + current("time").toString().slice(-5) + ".backup"
+            fileName = "xPense_" + current().toJSON().split("T")[0] + "_" + current("time").toString().slice(-5) + ".json"
             download(jsonString, fileName, "application/json")
             Swal.fire("Exported", fileName)
           }

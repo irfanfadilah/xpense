@@ -10,7 +10,9 @@ db.on("populate", function() {
     { key: "name", value: "Stranger" },
     { key: "currency", value: "Rp" },
     { key: "separator", value: "id" },
-    { key: "budget", value: "" }
+    { key: "budget", value: "" },
+    { key: "donated", value: false },
+    { key: "sort", value: "oldest" }
   ]);
 });
 
@@ -26,12 +28,31 @@ async function getExpenses(month, year) {
   return await db.expenses
     .where("[year+month]")
     .equals([parseInt(year), parseInt(month)])
-    .toArray();
+    .sortBy("time")
 };
 
+function createDefaultSorting() {
+  db.settings.add({ key: "sort", value: "oldest" })
+}
+
 function groupBy(data, key) {
-  return data.reduce(function(rv, x) {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
+  keys = [...new Set(data.map(x => x[key]))]
+
+  return getSettings("sort").then(sort => {
+    if (sort == undefined) {
+      createDefaultSorting()
+      keys = keys.sort((a, b) => a - b)
+    } else if (sort.value == "newest") {
+      keys = keys.sort((a, b) => b - a)
+    } else {
+      keys = keys.sort((a, b) => a - b)
+    }
+
+    return keys.map(item => {
+      return {
+        key: item,
+        data: data.filter(x => x[key] == item)
+      }
+    })
+  })
 };
