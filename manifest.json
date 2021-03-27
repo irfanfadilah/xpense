@@ -21,7 +21,6 @@
   ],
   "start_url": "/",
   "categories": ["finance"],
-  "orientation": "portrait",
   "background_color": "#1da1f2",
   "display": "standalone",
   "theme_color": "#1da1f2",
